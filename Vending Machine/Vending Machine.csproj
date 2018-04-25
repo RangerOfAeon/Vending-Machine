@@ -45,6 +45,7 @@
     <Compile Include="BaseAbstract.cs" />
     <Compile Include="DoWhat.cs" />
     <Compile Include="Drink.cs" />
+    <Compile Include="EndChange.cs" />
     <Compile Include="Food.cs" />
     <Compile Include="Machine.cs" />
     <Compile Include="Money.cs" />

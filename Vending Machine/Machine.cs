@@ -21,6 +21,7 @@ namespace Vending_Machine
         {
             Money money = new Money();
             DoWhat doWhat = new DoWhat();
+            EndChange endChange = new EndChange();
             bool EndMachine = false;
             while (EndMachine == false)
             {
@@ -52,6 +53,8 @@ namespace Vending_Machine
                         break;
                     case ConsoleKey.S:
                         EndMachine = true;
+                        endChange.Change();
+                        Console.ReadKey();
                         break;
                     default:
                         

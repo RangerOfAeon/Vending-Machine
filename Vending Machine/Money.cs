@@ -74,11 +74,6 @@ namespace Vending_Machine
                 }
             }
         }
-        public void Change()
-        {
-            //foreach (int a; MoneyPool > TypesOfMoney[8]; a++)
-            //MoneyPool = MoneyPool - TypesOfMoney[8];
-        }
         public void NoMoney()
         {
             Console.WriteLine("\nYou don't have enough money.");
