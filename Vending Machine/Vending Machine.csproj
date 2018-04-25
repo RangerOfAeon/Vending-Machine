@@ -42,8 +42,14 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Program.cs" />
+    <Compile Include="BaseAbstract.cs" />
+    <Compile Include="DoWhat.cs" />
+    <Compile Include="Drink.cs" />
+    <Compile Include="Food.cs" />
+    <Compile Include="Machine.cs" />
+    <Compile Include="Money.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Toy.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
