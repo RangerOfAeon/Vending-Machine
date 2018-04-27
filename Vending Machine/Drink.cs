@@ -140,6 +140,7 @@ namespace Vending_Machine
                         else
                         {
                             Console.WriteLine($"\nYou don't have any {Machine.Names[3]}");
+                            Console.ReadKey();
                         }
                         break;
                     case ConsoleKey.K:
@@ -153,6 +154,7 @@ namespace Vending_Machine
                         else
                         {
                             Console.WriteLine($"\nYou don't have any {Machine.Names[4]}");
+                            Console.ReadKey();
                         }
                         break;
                     case ConsoleKey.W:
@@ -166,6 +168,7 @@ namespace Vending_Machine
                         else
                         {
                             Console.WriteLine($"\nYou don't have any {Machine.Names[5]}");
+                            Console.ReadKey();
                         }
                         break;
                     case ConsoleKey.B:

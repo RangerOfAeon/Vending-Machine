@@ -141,6 +141,7 @@ namespace Vending_Machine
                         else                                // Om användaren inte har några kvar, så skriver programmet det.
                         {
                             Console.WriteLine($"\nYou don't have any {Machine.Names[0]}");
+                            Console.ReadKey();
                         }
                         break;
                     case ConsoleKey.P:
@@ -154,6 +155,7 @@ namespace Vending_Machine
                         else
                         {
                             Console.WriteLine($"\nYou don't have any {Machine.Names[1]}");
+                            Console.ReadKey();
                         }
                         break;
                     case ConsoleKey.H:
@@ -167,6 +169,7 @@ namespace Vending_Machine
                         else
                         {
                             Console.WriteLine($"\nYou don't have any {Machine.Names[2]}");
+                            Console.ReadKey();
                         }
                         break;
                     case ConsoleKey.B:                      // Här går man tillbaka till den förra menyn.
