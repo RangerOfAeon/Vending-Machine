@@ -10,7 +10,7 @@ namespace Vending_Machine
     {
         Machine machine = new Machine();
 
-        public override void BuyDrinks()
+        public override void BuyDrinks()            // Den här klassen fungerar likadant som Foodklassen, så kolla på den för kommentarer. 
         {
             End = false;
             while (End == false)
@@ -69,7 +69,7 @@ namespace Vending_Machine
                         End = true;
                         break;
                     default:
-                        machine.WrongInput();
+                        Machine.WrongInput();
                         break;
                 }
             }
@@ -83,9 +83,9 @@ namespace Vending_Machine
                 Console.Clear();
                 Console.WriteLine("What kind of drink do you want to examine?");
                 Console.WriteLine($"\nYour current money: {Money.MoneyPool}kr.");
-                Console.WriteLine($"\nPress [C] to examine the {Machine.Names[3]}.");
-                Console.WriteLine($"\nPress [K] to examine the {Machine.Names[4]}.");
-                Console.WriteLine($"\nPress [W] to examine the {Machine.Names[5]}.");
+                Console.WriteLine($"\nPress [C] to examine the {Machine.Names[3]}, {Money.Prices[3]}kr.");
+                Console.WriteLine($"\nPress [K] to examine the {Machine.Names[4]}, {Money.Prices[4]}kr.");
+                Console.WriteLine($"\nPress [W] to examine the {Machine.Names[5]}, {Money.Prices[5]}kr.");
                 Console.WriteLine("\nPress [B] to go back.");
 
                 var choose = Console.ReadKey(true);
@@ -107,7 +107,7 @@ namespace Vending_Machine
                         End = true;
                         break;
                     default:
-                        machine.WrongInput();
+                        Machine.WrongInput();
                         break;
                 }
             }
@@ -130,28 +130,49 @@ namespace Vending_Machine
                 switch (choose.Key)
                 {
                     case ConsoleKey.C:
-                        a--;
-                        Console.WriteLine($"\nYou drank the {Machine.Names[3]}.");
-                        Console.ReadKey();
-                        Console.Clear();
+                        if (a > 0)
+                        {
+                            a--;
+                            Console.WriteLine($"\nYou drank the {Machine.Names[3]}.");
+                            Console.ReadKey();
+                            Console.Clear();
+                        }
+                        else
+                        {
+                            Console.WriteLine($"\nYou don't have any {Machine.Names[3]}");
+                        }
                         break;
                     case ConsoleKey.K:
-                        b--;
-                        Console.WriteLine($"\nYou drank the {Machine.Names[4]}.");
-                        Console.ReadKey();
-                        Console.Clear();
+                        if (b > 0)
+                        {
+                            b--;
+                            Console.WriteLine($"\nYou drank the {Machine.Names[4]}.");
+                            Console.ReadKey();
+                            Console.Clear();
+                        }
+                        else
+                        {
+                            Console.WriteLine($"\nYou don't have any {Machine.Names[4]}");
+                        }
                         break;
                     case ConsoleKey.W:
-                        c--;
-                        Console.WriteLine($"\nYou drank the {Machine.Names[5]}.");
-                        Console.ReadKey();
-                        Console.Clear();
+                        if (c > 0)
+                        {
+                            c--;
+                            Console.WriteLine($"\nYou drank the {Machine.Names[5]}.");
+                            Console.ReadKey();
+                            Console.Clear();
+                        }
+                        else
+                        {
+                            Console.WriteLine($"\nYou don't have any {Machine.Names[5]}");
+                        }
                         break;
                     case ConsoleKey.B:
                         End = true;
                         break;
                     default:
-                        machine.WrongInput();
+                        Machine.WrongInput();
                         Console.ReadKey();
                         Console.Clear();
                         break;

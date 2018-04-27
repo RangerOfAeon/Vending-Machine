@@ -6,88 +6,65 @@ using System.Threading.Tasks;
 
 namespace Vending_Machine
 {
-    class EndChange
+    class EndChange                 // Här är klassen som räknar ut hur mycket växel som användaren får tillbaka, och den skapar även en lista som håller växeln.
     {
-        int a;
-        int b;
-        int c;
-        int d;
-        int e;
-        int f;
-        int g;
-        int h;
+        public static List<int> YourMoney = new List<int>();
 
-        public void Change()
+        public void Change()            // Här börjar metoden som räknar ut växeln.
         {
-            while (Money.MoneyPool > 0)
+            while (Money.MoneyPool > 0)         // Här börjar loopen som fortsätter tills maskinen inte har några pengar kvar.
             {
-                while (Money.MoneyPool >= Money.TypesOfMoney[7])
-                {
-                    if (Money.MoneyPool >= Money.TypesOfMoney[7])
-                    {
+                while (Money.MoneyPool >= Money.TypesOfMoney[7])        // Så länge man har 1000kr eller mer, så tar den bort 1000kr från din MoeyPool, och lägger i 1000
+                {                                                                               // i en list.
                         Money.MoneyPool = Money.MoneyPool - Money.TypesOfMoney[7];
-                        a++;
-                    }
+                        YourMoney.Add(Money.TypesOfMoney[7]);
                 }
-                while (Money.MoneyPool >= Money.TypesOfMoney[6])
+                while (Money.MoneyPool >= Money.TypesOfMoney[6])        // Samma som ovan fast nu är det 500kr. Sedan blir det 100kr, sedan 50kr osv...
                 {
-                    if (Money.MoneyPool >= Money.TypesOfMoney[6])
-                    {
                         Money.MoneyPool = Money.MoneyPool - Money.TypesOfMoney[6];
-                        b++;
-                    }
-                }
+                        YourMoney.Add(Money.TypesOfMoney[6]);
+                }                                                              
                 while (Money.MoneyPool >= Money.TypesOfMoney[5])
                 {
-                    if (Money.MoneyPool >= Money.TypesOfMoney[5])
-                    {
                         Money.MoneyPool = Money.MoneyPool - Money.TypesOfMoney[5];
-                        c++;
-                    }
+                        YourMoney.Add(Money.TypesOfMoney[5]);
                 }
                 while (Money.MoneyPool >= Money.TypesOfMoney[4])
                 {
-                    if (Money.MoneyPool >= Money.TypesOfMoney[4])
-                    {
                         Money.MoneyPool = Money.MoneyPool - Money.TypesOfMoney[4];
-                        d++;
-                    }
+                        YourMoney.Add(Money.TypesOfMoney[4]);
                 }
                 while (Money.MoneyPool >= Money.TypesOfMoney[3])
                 {
-                    if (Money.MoneyPool >= Money.TypesOfMoney[3])
-                    {
                         Money.MoneyPool = Money.MoneyPool - Money.TypesOfMoney[3];
-                        e++;
-                    }
+                        YourMoney.Add(Money.TypesOfMoney[3]);
                 }
                 while (Money.MoneyPool >= Money.TypesOfMoney[2])
                 {
-                    if (Money.MoneyPool >= Money.TypesOfMoney[2])
-                    {
                         Money.MoneyPool = Money.MoneyPool - Money.TypesOfMoney[2];
-                        f++;
-                    }
+                        YourMoney.Add(Money.TypesOfMoney[2]);
                 }
                 while (Money.MoneyPool >= Money.TypesOfMoney[1])
                 {
-                    if (Money.MoneyPool >= Money.TypesOfMoney[1])
-                    {
                         Money.MoneyPool = Money.MoneyPool - Money.TypesOfMoney[1];
-                        g++;
-                    }
+                        YourMoney.Add(Money.TypesOfMoney[1]);
                 }
                 while (Money.MoneyPool >= Money.TypesOfMoney[0])
                 {
-                    if (Money.MoneyPool >= Money.TypesOfMoney[0])
-                    {
                         Money.MoneyPool = Money.MoneyPool - Money.TypesOfMoney[0];
-                        h++;
-                    }
+                        YourMoney.Add(Money.TypesOfMoney[0]);
                 }
-
+                                                                        // Här avslutas hela loopen.
             }
-            Console.WriteLine($"\nYou get back {a}: 1000 bills, {b}: 500 bills, {c}: 100 bills, {d}: 50 bills, {e}: 20 bills, {f}: 10 coins, {g}: 5 coins, {h}: 1 coins.");
+            Console.Clear();
+            Console.WriteLine("Your change:");          // Här skriver programmet ut användarens växel i en lista, sedan stängs programmet ner.
+            foreach (int item in YourMoney)
+            {
+                Console.WriteLine($"\nOne {item}kr.");
+            }
         }
+        
+        
+        
     }
 }

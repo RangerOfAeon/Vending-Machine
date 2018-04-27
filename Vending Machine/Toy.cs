@@ -10,7 +10,7 @@ namespace Vending_Machine
     {
         Machine machine = new Machine();
 
-        public override void BuyToy()
+        public override void BuyToy()                   // Den här klassen fungerar likadant som Foodklassen, så kolla på den för kommentarer. 
         {
             End = false;
             while (End == false)
@@ -28,7 +28,7 @@ namespace Vending_Machine
                 switch (choose.Key)
                 {
                     case ConsoleKey.C:
-                        if (Money.MoneyPool >= Money.Prices[8])
+                        if (Money.MoneyPool >= Money.Prices[6])
                         {
                             Money.MoneyPool = Money.MoneyPool - Money.Prices[6];
                             a++;
@@ -41,7 +41,7 @@ namespace Vending_Machine
                         }
                         break;
                     case ConsoleKey.J:
-                        if (Money.MoneyPool >= Money.Prices[8])
+                        if (Money.MoneyPool >= Money.Prices[7])
                         {
                             Money.MoneyPool = Money.MoneyPool - Money.Prices[7];
                             b++;
@@ -70,7 +70,7 @@ namespace Vending_Machine
                         End = true;
                         break;
                     default:
-                        machine.WrongInput();
+                        Machine.WrongInput();
                         break;
                 }
             }
@@ -84,9 +84,9 @@ namespace Vending_Machine
                 Console.Clear();
                 Console.WriteLine("What kind of toy do you want to examine?");
                 Console.WriteLine($"\nYour current money: {Money.MoneyPool}kr.");
-                Console.WriteLine($"\nPress [C] to examine the {Machine.Names[6]}.");
-                Console.WriteLine($"\nPress [J] to examine the {Machine.Names[7]}.");
-                Console.WriteLine($"\nPress [F] to examine the {Machine.Names[8]}.");
+                Console.WriteLine($"\nPress [C] to examine the {Machine.Names[6]}, {Money.Prices[6]}kr.");
+                Console.WriteLine($"\nPress [J] to examine the {Machine.Names[7]}, {Money.Prices[7]}kr.");
+                Console.WriteLine($"\nPress [F] to examine the {Machine.Names[8]}, {Money.Prices[8]}kr.");
                 Console.WriteLine("\nPress [B] to go back.");
 
                 var choose = Console.ReadKey(true);
@@ -108,7 +108,7 @@ namespace Vending_Machine
                         End = true;
                         break;
                     default:
-                        machine.WrongInput();
+                        Machine.WrongInput();
                         Console.ReadKey();
                         break;
                 }
@@ -132,28 +132,49 @@ namespace Vending_Machine
                 switch (choose.Key)
                 {
                     case ConsoleKey.C:
-                        a--;
-                        Console.WriteLine($"\nYou played with the {Machine.Names[6]}.");
-                        Console.ReadKey();
-                        Console.Clear();
+                        if (a > 0)
+                        {
+                            a--;
+                            Console.WriteLine($"\nYou played with the {Machine.Names[6]}.");
+                            Console.ReadKey();
+                            Console.Clear();
+                        }
+                        else
+                        {
+                            Console.WriteLine($"\nYou don't have any {Machine.Names[6]}");
+                        }
                         break;
                     case ConsoleKey.J:
-                        b--;
-                        Console.WriteLine($"\nYou played with the {Machine.Names[7]}.");
-                        Console.ReadKey();
-                        Console.Clear();
+                        if (b > 0)
+                        {
+                            b--;
+                            Console.WriteLine($"\nYou played with the {Machine.Names[7]}.");
+                            Console.ReadKey();
+                            Console.Clear();
+                        }
+                        else
+                        {
+                            Console.WriteLine($"\nYou don't have any {Machine.Names[7]}");
+                        }
                         break;
                     case ConsoleKey.F:
-                        c--;
-                        Console.WriteLine($"\nYou played with the {Machine.Names[8]}.");
-                        Console.ReadKey();
-                        Console.Clear();
+                        if (c > 0)
+                        {
+                            c--;
+                            Console.WriteLine($"\nYou played with the {Machine.Names[8]}.");
+                            Console.ReadKey();
+                            Console.Clear();
+                        }
+                        else
+                        {
+                            Console.WriteLine($"\nYou don't have any {Machine.Names[8]}");
+                        }
                         break;
                     case ConsoleKey.B:
                         End = true;
                         break;
                     default:
-                        machine.WrongInput();
+                        Machine.WrongInput();
                         Console.ReadKey();
                         Console.Clear();
                         break;
