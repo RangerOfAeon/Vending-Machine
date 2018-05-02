@@ -123,8 +123,8 @@ namespace Vending_Machine
                 Console.WriteLine("What kind of food do you want to use?");                                 // Här frågar programmet vilken produkt som användaren vill
                 Console.WriteLine($"\nYour current money: {Money.MoneyPool}kr.");                           // använda.
                 Console.WriteLine($"\nPress [S] to use the {Machine.Names[0]}, you have {a} left.");
-                Console.WriteLine($"\nPress [P] to ues the {Machine.Names[1]}, you have {b} left.");
-                Console.WriteLine($"\nPress [H] to ues the {Machine.Names[2]}, you have {c} left.");
+                Console.WriteLine($"\nPress [P] to use the {Machine.Names[1]}, you have {b} left.");
+                Console.WriteLine($"\nPress [H] to use the {Machine.Names[2]}, you have {c} left.");
                 Console.WriteLine("\nPress [B] to go back.");
 
                 var choose = Console.ReadKey(true);                 // Här väljer användaren.
@@ -159,7 +159,7 @@ namespace Vending_Machine
                         }
                         break;
                     case ConsoleKey.H:
-                        if (b > 0)
+                        if (c > 0)
                         {
                             c--;
                             Console.WriteLine($"\nYou ate the {Machine.Names[2]}.");
